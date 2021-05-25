@@ -1,6 +1,7 @@
-class Recipe < ActiveRecord::Base
+class Recipe < ApplicationRecord
   has_many :recipe_foods
   has_many :foods, through: :recipe_foods
+  validates :title, presence: true
 
   def create_recipe_foods(new_food)
     new_food.each do |food|

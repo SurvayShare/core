@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  purchase_order: one
+  food: one
+  count: 1.5
+  unit: MyString
+
+two:
+  purchase_order: two
+  food: two
+  count: 1.5
+  unit: MyString

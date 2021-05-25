@@ -12,31 +12,31 @@
 
 ActiveRecord::Schema.define(version: 2021_05_25_032900) do
 
-  create_table "core_purchase_order_items", force: :cascade do |t|
+  create_table "foods", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "food_type", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "purchase_order_items", force: :cascade do |t|
     t.integer "purchase_order_id", null: false
     t.integer "food_id", null: false
     t.float "count", default: 1.0
     t.string "unit", default: "gram"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["food_id"], name: "index_core_purchase_order_items_on_food_id"
-    t.index ["purchase_order_id"], name: "index_core_purchase_order_items_on_purchase_order_id"
+    t.index ["food_id"], name: "index_purchase_order_items_on_food_id"
+    t.index ["purchase_order_id"], name: "index_purchase_order_items_on_purchase_order_id"
   end
 
-  create_table "core_purchase_orders", force: :cascade do |t|
+  create_table "purchase_orders", force: :cascade do |t|
     t.string "address", null: false
     t.string "city", default: "Melbourne"
     t.string "customer_name", null: false
     t.string "username", null: false
     t.string "state", default: "Victoira"
     t.string "country", default: "Austalia"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "foods", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "food_type", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -59,6 +59,6 @@ ActiveRecord::Schema.define(version: 2021_05_25_032900) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "core_purchase_order_items", "foods"
-  add_foreign_key "core_purchase_order_items", "purchase_orders"
+  add_foreign_key "purchase_order_items", "foods"
+  add_foreign_key "purchase_order_items", "purchase_orders"
 end

@@ -1,6 +1,6 @@
-class CreateCorePurchaseOrders < ActiveRecord::Migration[6.1]
+class CreatePurchaseOrders < ActiveRecord::Migration[6.1]
   def change
-    create_table :core_purchase_orders do |t|
+    create_table :purchase_orders do |t|
       t.string :address, null: false
       t.string :city, default: 'Melbourne'
       t.string :customer_name, null: false
